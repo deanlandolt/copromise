@@ -1,0 +1,26 @@
+{
+	"name": "copromise",
+	"version": "0.0.1",
+	"description": "Promise-based adaption of co stripped bare, with a some added conveniences",
+	"main": "copromise.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/deanlandolt/copromise"
+	},
+	"keywords": [
+		"async",
+		"flow",
+		"coroutine",
+		"generator",
+		"promise"
+	],
+	"author": "Dean Landolt <dean@deanlandolt.com> (http://deanlandolt.com/)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/deanlandolt/copromise/issues"
+	},
+	"homepage": "https://github.com/deanlandolt/copromise"
+}
