@@ -34,7 +34,7 @@ function copromise(coroutine) {
 	if (isGeneratorFunction(coroutine)) {
 		coroutine = coroutine();
 	}
-	return run(coroutine).catch(copromise.raise);
+	return run(coroutine);
 }
 
 copromise.exec = function exec(coroutine) {
