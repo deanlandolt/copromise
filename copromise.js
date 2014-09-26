@@ -38,7 +38,7 @@ function copromise(coroutine) {
 }
 
 copromise.exec = function exec(coroutine) {
-	return run(coroutine).catch(copromise.raise);
+	return run(coroutine).catch(raise);
 };
 
 module.exports = copromise;
