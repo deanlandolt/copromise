@@ -14,4 +14,4 @@ Running a coroutine returns a promise which will resolve to the return value of 
 
 ## `yield*`
 
-The `yield*` operator can be used to invoke to another coroutine. The result of the yield* epxression (if successful) will be the value returned from the delegated coroutine. If this value is a promise it will be resolved before execution resumes in the originating coroutine.
+The `yield*` operator can be used to invoke to another coroutine. The result of the yield* expression (if successful) will be the value returned from the delegated coroutine. If this value is a promise it will be resolved before execution resumes in the originating coroutine.
