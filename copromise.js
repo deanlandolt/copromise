@@ -29,7 +29,7 @@ function raise(error) {
 	});
 }
 
-// Run coroutine and raise exception on failure
+// Run coroutine or coroutine factory
 function copromise(coroutine) {
 	if (isGeneratorFunction(coroutine)) {
 		coroutine = coroutine();
@@ -37,6 +37,7 @@ function copromise(coroutine) {
 	return run(coroutine);
 }
 
+// Run and raise exception on failure
 copromise.exec = function exec(coroutine) {
 	return run(coroutine).catch(raise);
 };
