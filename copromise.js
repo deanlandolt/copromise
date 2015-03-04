@@ -1,5 +1,5 @@
 // Core coroutine runner
-function run(coroutine) {
+function spawn(coroutine) {
 	return new Promise(function (resolve, reject) {
 		(function next(value, exception) {
 			var result;
@@ -17,11 +17,14 @@ function run(coroutine) {
 	});
 }
 
-function isGeneratorFunction(obj) {
-	return obj && obj.constructor && 'GeneratorFunction' == obj.constructor.name;
+// Create an async function from provided coroutine (generator factory)
+function copromise(coroutine) {
+	return function fn() {
+		return spawn(coroutine.apply(this, arguments));
+	}
 }
 
-// Throw error in next event turn
+// Rethrow error in next event turn
 function raise(error) {
 	if (!error) return;
 	setImmediate(function() {
@@ -29,17 +32,9 @@ function raise(error) {
 	});
 }
 
-// Run coroutine or coroutine factory
-function copromise(coroutine) {
-	if (isGeneratorFunction(coroutine)) {
-		coroutine = coroutine();
-	}
-	return run(coroutine);
-}
-
-// Run and raise exception on failure
-copromise.exec = function exec(coroutine) {
-	return run(coroutine).catch(raise);
+// Run coroutine and raise exception on failure
+copromise.run = function run(coroutine) {
+	return spawn(coroutine()).catch(raise);
 };
 
 module.exports = copromise;
