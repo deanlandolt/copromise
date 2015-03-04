@@ -21,7 +21,7 @@ function spawn(coroutine) {
 function copromise(coroutine) {
 	return function fn() {
 		return spawn(coroutine.apply(this, arguments));
-	}
+	};
 }
 
 // Rethrow error in next event turn
