@@ -2,9 +2,9 @@
 	"name": "copromise",
 	"version": "0.2.0",
 	"description": "Promise-based adaption of co stripped bare, with a some added conveniences",
-	"main": "copromise.js",
+	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "node --harmony test"
 	},
 	"repository": {
 		"type": "git",
