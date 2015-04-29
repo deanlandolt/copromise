@@ -39,9 +39,6 @@ copromise.Promise = Promise
 // rethrow error in next event turn
 //
 function raise(error) {
-	if (!error)
-		return
-
 	setImmediate(function() {
 		throw error
 	})
