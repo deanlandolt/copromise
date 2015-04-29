@@ -2,7 +2,7 @@
 // core coroutine runner
 //
 function spawn(coroutine) {
-	return new Copromise.Promise(function (resolve, reject) {
+	return new copromise.Promise(function (resolve, reject) {
 		(function next(value, exception) {
 			var result
 			try {
@@ -24,7 +24,7 @@ function spawn(coroutine) {
 //
 // create an async function from provided coroutine (generator factory)
 //
-function Copromise(coroutine) {
+function copromise(coroutine) {
 	return function () {
 		return spawn(coroutine.apply(this, arguments))
 	}
@@ -33,7 +33,7 @@ function Copromise(coroutine) {
 //
 // allow overriding of promise implementation for subclassing
 //
-Copromise.Promise = Promise
+copromise.Promise = Promise
 
 //
 // rethrow error in next event turn
@@ -50,8 +50,8 @@ function raise(error) {
 //
 // run coroutine and raise exception on failure
 //
-Copromise.run = function run(coroutine) {
+copromise.run = function run(coroutine) {
 	return spawn(coroutine()).catch(raise)
 }
 
-module.exports = Copromise
+module.exports = copromise

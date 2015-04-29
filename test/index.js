@@ -1,5 +1,5 @@
 var assert = require('assert')
-var Copromise = require('../')
+var copromise = require('../')
 
 // TODO: assert some shit
 //
@@ -44,7 +44,7 @@ function* coroutine(value, fail) {
 
 // Async function wrapper
 
-var fn = Copromise(coroutine)
+var fn = copromise(coroutine)
 
 fn('hello').then(function (value) {
 	console.log('received:', value)
@@ -57,7 +57,7 @@ fn('...', 'fail').then(function () {
 })
 
 // Program runner
-Copromise.run(function* () {
+copromise.run(function* () {
 	console.log('a')
 
 	yield sleep(500)
